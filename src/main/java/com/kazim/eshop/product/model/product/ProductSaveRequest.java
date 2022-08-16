@@ -1,8 +1,11 @@
-package com.kazim.eshop.product.model;
+package com.kazim.eshop.product.model.product;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
 
 import com.kazim.eshop.product.domain.MoneyTypes;
+import com.kazim.eshop.product.domain.ProductImage;
 
 import lombok.Builder;
 import lombok.Data;
@@ -15,12 +18,12 @@ public class ProductSaveRequest {
     private String image;
     private String name;
     private String description;
-    private ProductSellerResponse seller;
+    private String sellerId;
     private String features;
     private int available;
     private boolean freeDelivery;
     private String deliveryIn;
-    private BigDecimal price;
     private String categoryId;
-    private MoneyTypes moneyType;
+    private List<ProductImage> images;
+    private HashMap<MoneyTypes, BigDecimal> price;
 }

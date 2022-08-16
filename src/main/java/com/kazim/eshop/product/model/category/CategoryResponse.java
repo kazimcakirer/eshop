@@ -1,13 +1,11 @@
-package com.kazim.eshop.product.domain.es;
+package com.kazim.eshop.product.model.category;
 
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class CategoryEs {
+public class CategoryResponse {
     private String id;
     private String name;
-    private String code;
-    
 }

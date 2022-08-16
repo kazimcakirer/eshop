@@ -1,8 +1,9 @@
-package com.kazim.eshop.product.model;
+package com.kazim.eshop.product.model.product;
 
 import java.math.BigDecimal;
 
 import com.kazim.eshop.product.domain.MoneyTypes;
+import com.kazim.eshop.product.model.ProductSellerReponse;
 
 import lombok.Builder;
 import lombok.Data;
@@ -22,5 +23,5 @@ public class ProductResponse {
     private String deliveryIn;
     private BigDecimal price;
     private String categoryId;
-    private MoneyTypes moneyType;
+    private String moneySymbol;
 }

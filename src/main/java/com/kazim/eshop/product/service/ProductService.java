@@ -1,12 +1,14 @@
 package com.kazim.eshop.product.service;
 
 import java.math.BigDecimal;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
 import com.kazim.eshop.product.domain.MoneyTypes;
 import com.kazim.eshop.product.domain.Product;
 import com.kazim.eshop.product.domain.ProductImage;
+import com.kazim.eshop.product.domain.ProductImage.ImageType;
 import com.kazim.eshop.product.domain.es.ProductEs;
 import com.kazim.eshop.product.model.ProductSellerReponse;
 import com.kazim.eshop.product.model.product.ProductResponse;
@@ -23,7 +25,6 @@ import reactor.core.publisher.Mono;
 public class ProductService {
 
     private final ProductRepository productRepository;
-    private final ProductPriceService productPriceService;
     private final ProductDeliveryService productDeliveryService;
     private final ProductAmountService productAmountService;
     private final ProductImageService productImageService;
@@ -42,7 +43,7 @@ public class ProductService {
                 .description(request.getDescription())
                 .features(request.getFeatures())
                 .name(request.getName())
-                .productImage(request.getImages())
+                .productImage(request.getImages().stream().map(it -> new ProductImage(ImageType.FEATURE, it)).collect(Collectors.toList()))
                 .price(request.getPrice())
                 .build();
         product = productRepository.save(product).block();

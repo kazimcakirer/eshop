@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.kazim.eshop.product.domain.MoneyTypes;
-import com.kazim.eshop.product.domain.ProductImage;
 
 import lombok.Builder;
 import lombok.Data;
@@ -24,6 +23,6 @@ public class ProductSaveRequest {
     private boolean freeDelivery;
     private String deliveryIn;
     private String categoryId;
-    private List<ProductImage> images;
+    private List<String> images;
     private HashMap<MoneyTypes, BigDecimal> price;
 }
